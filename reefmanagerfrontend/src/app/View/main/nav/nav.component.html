@@ -1,0 +1,19 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+      <mat-nav-list role="list">
+        <mat-list-item role="listitem" routerLink="">Home
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="corals">Corais<img  src="assets/Icons/coral-svgrepo-com.svg"></mat-list-item>
+        <mat-list-item role="listitem" routerLink="fishs">Peixes<img  src="assets/Icons/fish-svgrepo-com.svg"></mat-list-item>
+        <mat-list-item role="listitem" routerLink="invertebrates">Invertebrados<img  src="assets/Icons/starfish-svgrepo-com.svg"></mat-list-item>
+      </mat-nav-list>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button  mat-icon-button (click)="drawer.toggle()">
+      <mat-icon fontIcon="menu"></mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

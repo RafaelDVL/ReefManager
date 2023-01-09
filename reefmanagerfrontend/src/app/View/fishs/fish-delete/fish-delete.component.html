@@ -1,0 +1,19 @@
+<mat-card class="mat-elevation-z8 example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Peixes</mat-card-subtitle>
+    <mat-card-title>{{obj.nome}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Tem certeza que deseja deletar esse item?</p>
+    <img mat-card-image [src]="obj.urlimage" alt="Photo of a Shiba Inu">
+    <p></p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="warn" (click)="delete()">Apagar</button>
+    <button mat-button color="accent" (click)="cancel()">Cancelar</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

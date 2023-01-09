@@ -1,0 +1,44 @@
+.container{
+  margin: 1rem auto;
+  width: 95%;
+  min-height: 40rem;
+}
+
+mat-card-title{
+width: 100%;
+padding: 15px;
+font-size: 3rem;
+margin-top: 1rem;
+margin-bottom: 2rem;
+text-align: center;
+}
+
+mat-form-field{
+width: 45rem;
+padding: 10px;
+}
+
+mat-card-content{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.formcontainer{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content:center;
+align-items: center;
+margin-bottom:20px ;
+}
+
+.buttonbox{
+margin: 2rem;
+}
+
+.buttonbox button{
+margin: 10px;
+width: 120px;
+}

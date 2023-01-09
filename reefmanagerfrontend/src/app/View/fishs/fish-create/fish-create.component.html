@@ -1,0 +1,106 @@
+<mat-card class="mat-elevation-z8 container">
+  <mat-card-content>
+    <mat-card-title class="mat-elevation-z2"
+      >Adicionar novo peixe</mat-card-title
+    >
+    <form class="formcontainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input
+          [(ngModel)]="obj.nome"
+          [formControl]="nome"
+          name="nome"
+          matInput
+          placeholder="Digite o nome"
+        />
+        <mat-icon matSuffix *ngIf="nome.valid">sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix *ngIf="nome.invalid">sentiment_very_dissatisfied</mat-icon>
+        <mat-hint *ngIf="nome.invalid">Esse campo é obrigatorio!!</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Comportamento</mat-label>
+        <input
+          [(ngModel)]="obj.comportamento"
+          [formControl]="comportamento"
+          name="comportamento"
+          matInput
+          placeholder=""
+        />
+        <mat-icon matSuffix *ngIf="nome.valid">sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix *ngIf="nome.invalid">sentiment_very_dissatisfied</mat-icon>
+        <mat-hint *ngIf="nome.invalid">Esse campo é obrigatorio!!</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tamanho minimo do aquario</mat-label>
+        <input
+        type="number"
+          [(ngModel)]="obj.aquariomin"
+          [formControl]="aquariomin"
+          name="nome"
+          matInput
+          placeholder="Digite o nome"
+        />
+        <mat-hint *ngIf="nome.invalid">Esse campo é obrigatorio!!</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>URL da imagem de perfil</mat-label>
+        <input
+          [(ngModel)]="obj.urlimage"
+          name="urlimage"
+          [formControl]="urlimage"
+          matInput
+          placeholder=""
+        />
+        <mat-icon matSuffix *ngIf="urlimage.valid">sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix *ngIf="urlimage.invalid">sentiment_very_dissatisfied</mat-icon>
+        <mat-hint *ngIf="urlimage.invalid">Esse campo é obrigatorio!</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Dificuldade</mat-label>
+        <mat-select [(ngModel)]="obj.dificuldade" name="dificuldade" [formControl]="dificuldade">
+          <mat-option *ngFor=" let x of escala" [value]="x.value">{{ x.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Alimentação</mat-label>
+        <mat-select [(ngModel)]="obj.alimentacao" name="alimentacao" [formControl]="alimentacao">
+          <mat-option *ngFor=" let x of foods" [value]="x.value">{{ x.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Descrição</mat-label>
+          <textarea
+            [(ngModel)]="obj.description"
+            matInput
+            #selectedValueDes
+            maxlength="400"
+            name="description"
+            [formControl]="description"
+          ></textarea>
+          <mat-hint align="start"
+            ><strong>Descreva a especie</strong>
+          </mat-hint>
+          <mat-hint align="end"
+            >{{ selectedValueDes.value.length }} / 400</mat-hint
+          >
+        </mat-form-field>
+      </form>
+    </form>
+    <div class="buttonbox">
+      <button mat-stroked-button color="accent" (click)="create()">
+        Salvar
+      </button>
+      <button mat-stroked-button color="warn">
+        Cancelar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+

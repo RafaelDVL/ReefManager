@@ -1,0 +1,110 @@
+<mat-card class="mat-elevation-z8 container">
+  <mat-card-content>
+    <mat-card-title class="mat-elevation-z2"
+      >Adicionar novo coral</mat-card-title
+    >
+    <form class="formcontainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input
+          [(ngModel)]="obj.nome"
+          [formControl]="nome"
+          name="nome"
+          matInput
+          placeholder="Digite o nome"
+        />
+        <mat-icon matSuffix *ngIf="nome.valid">sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix *ngIf="nome.invalid">sentiment_very_dissatisfied</mat-icon>
+        <mat-hint *ngIf="nome.invalid">Esse campo é obrigatorio e precisa conter no minimo 6 caracteres!!</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>URL da imagem de perfil</mat-label>
+        <input
+          [(ngModel)]="obj.urlimage"
+          name="urlimage"
+          [formControl]="urlimage"
+          matInput
+          placeholder=""
+        />
+        <mat-icon matSuffix *ngIf="urlimage.valid">sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix *ngIf="urlimage.invalid">sentiment_very_dissatisfied</mat-icon>
+        <mat-hint *ngIf="urlimage.invalid">Esse campo é obrigatorio e precisa conter no minimo 20 caracteres!</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="obj.tipo" name="tipo" [formControl]="tipo">
+          <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+            {{ tipo.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Dificuldade</mat-label>
+        <mat-select [(ngModel)]="obj.dificuldade" name="dificuldade" [formControl]="dificuldade">
+          <mat-option *ngFor="let tipo of escala" [value]="tipo.value">
+            {{ tipo.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Iluminação</mat-label>
+        <mat-select [(ngModel)]="obj.iluminacao" name="iluminacao" [formControl]="iluminacao">
+          <mat-option *ngFor="let tipo of escala" [value]="tipo.value">
+            {{ tipo.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Circulação</mat-label>
+        <mat-select [(ngModel)]="obj.circulacao" name="circulacao" [formControl]="circulacao">
+          <mat-option *ngFor="let tipo of escala" [value]="tipo.value">
+            {{ tipo.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Agressividade</mat-label>
+        <mat-select [(ngModel)]="obj.agressividade" name="agressividade" [formControl]="agressividade">
+          <mat-option *ngFor="let tipo of escala" [value]="tipo.value">
+            {{ tipo.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Descrição</mat-label>
+          <textarea
+            [(ngModel)]="obj.description"
+            matInput
+            #selectedValueDes
+            maxlength="400"
+            name="description"
+            [formControl]="description"
+          ></textarea>
+          <mat-hint align="start"
+            ><strong>Descreva a especie</strong>
+          </mat-hint>
+          <mat-hint align="end"
+            >{{ selectedValueDes.value.length }} / 400</mat-hint
+          >
+        </mat-form-field>
+      </form>
+    </form>
+    <div class="buttonbox">
+      <button mat-stroked-button color="accent" (click)="create()" [disabled]="
+      errorValidTipo() ||
+      errorValidNome() ||
+      errorValidDificuldade() ||
+      errorValidIluminacao() ||
+      errorValidCirculacao() ||
+      errorValidAgressividade() ||
+      errorValidUrl()
+      ">
+        Salvar
+      </button>
+      <button mat-stroked-button color="warn" (click)="cancel()">
+        Cancelar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
